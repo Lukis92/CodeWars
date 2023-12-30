@@ -1,9 +1,10 @@
 # https://www.codewars.com/kata/5968fb556875980bd900000f/train/python
 def diagonal(ar):
    n = len(ar)
-   
-   for s in range(2 * n - 1):
-      print(s)
+   result = []
+
+   for d in range(2 * n - 1):
+      row_start = max(0, n - 1 - d)
 
 
 arr = [
