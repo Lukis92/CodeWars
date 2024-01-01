@@ -1,0 +1,7 @@
+test.assert_equals(wave("hello"), ["Hello", "hEllo", "heLlo", "helLo", "hellO"])
+test.assert_equals(wave("codewars"), ["Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"])
+test.assert_equals(wave(""), [])
+test.assert_equals(wave("two words"),["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"])
+test.assert_equals(wave(" gap "), [" Gap ", " gAp ", " gaP "])
+test.assert_equals(wave("a       b    "), ["A       b    ", "a       B    "])
+test.assert_equals(wave("this is a few words"), ["This is a few words", "tHis is a few words", "thIs is a few words", "thiS is a few words", "this Is a few words", "this iS a few words", "this is A few words", "this is a Few words", "this is a fEw words", "this is a feW words", "this is a few Words", "this is a few wOrds", "this is a few woRds", "this is a few worDs", "this is a few wordS"])
