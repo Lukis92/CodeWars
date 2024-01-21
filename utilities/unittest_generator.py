@@ -74,6 +74,6 @@ class UnitTestGenerator():
             f.write(unit_tests)
 
 # Example usage
-tests = UnitTestGenerator("TestWave")
+tests = UnitTestGenerator("TestRemoveNthElement")
 unittests = tests.generate_unit_tests()
 tests.output_unit_tests(unittests)
