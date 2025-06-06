@@ -1,20 +1,30 @@
-# https://www.codewars.com/kata/57212c55b6fa235edc0002a2/train/python
-def common_ground(s1,s2):
-    words_s1 = set(s1.split())
-    words_s2 = s2.split()
+"""Find common words between two strings in the order they appear in the second."""
 
-    common_words = [word for word in words_s2 if word in words_s1]
-    
-    if not common_words:
-        return "death"
-    
+from typing import List
+
+
+def common_ground(s1: str, s2: str) -> str:
+    """Return unique common words from ``s2`` that also appear in ``s1``.
+
+    If there are no common words, ``"death"`` is returned.
+
+    Args:
+        s1: First string of words.
+        s2: Second string of words.
+
+    Returns:
+        A string containing words that are present in both inputs, ordered
+        by their appearance in ``s2``. Duplicates are removed while
+        preserving order.
+    """
+
+    words1 = set(s1.split())
+    result: List[str] = []
     seen = set()
-    result = []
-    for word in common_words:
-        if word not in seen:
-            seen.add(word)
+
+    for word in s2.split():
+        if word in words1 and word not in seen:
             result.append(word)
-    return " ".join(result)
+            seen.add(word)
 
-
-print(common_ground("eat chicken", "eat chicken and rice"))
+    return " ".join(result) if result else "death"

@@ -1,15 +1,32 @@
-# https://www.codewars.com/kata/5a6225e5d8e145b540000127/train/python
+"""Utility functions for operations on collections."""
+
 from collections import Counter
+from typing import Sequence
 
-def common(a, b, c):
-    common_elements_sum = 0
 
-    b_counter, c_counter = Counter(b), Counter(c)
+def common(a: Sequence[int], b: Sequence[int], c: Sequence[int]) -> int:
+    """Return the sum of elements present in all three sequences.
 
-    for elem in a:
-        if b_counter[elem] > 0 and c_counter[elem] > 0:
-            common_elements_sum += elem
-            b_counter[elem] -= 1
-            c_counter[elem] -= 1
+    Each element is counted as many times as it appears in all three
+    sequences. For example, if ``2`` appears twice in each sequence,
+    ``2`` will contribute ``4`` to the final sum.
 
-    return common_elements_sum
+    Args:
+        a: First sequence of integers.
+        b: Second sequence of integers.
+        c: Third sequence of integers.
+
+    Returns:
+        The sum of common elements among ``a``, ``b`` and ``c``.
+    """
+
+    total = 0
+    b_counts, c_counts = Counter(b), Counter(c)
+
+    for value in a:
+        if b_counts[value] > 0 and c_counts[value] > 0:
+            total += value
+            b_counts[value] -= 1
+            c_counts[value] -= 1
+
+    return total

@@ -1,15 +1,21 @@
-# https://www.codewars.com/kata/578aa45ee9fd15ff4600090d/train/python
-def sort_array(source_array):
-    odd_list = []
-    for elem in source_array:
-        if elem % 2 != 0:
-            odd_list.append(elem)
-    odd_list.sort()
-    odd_index = 0
-    for index, elem in enumerate(source_array):
-        if elem % 2 != 0:
-            source_array[index] = odd_list[odd_index]
-            odd_index += 1
-    return source_array
+"""Sort only the odd numbers in a list while preserving even positions."""
 
-print(sort_array([5, 3, 2, 8, 1, 4])) #[1, 3, 2, 8, 5, 4]
+from typing import List
+
+
+def sort_array(source_array: List[int]) -> List[int]:
+    """Return a list with odd numbers sorted in ascending order.
+
+    The positions of even numbers remain unchanged.
+
+    Args:
+        source_array: List of integers containing both odd and even numbers.
+
+    Returns:
+        A new list where all odd numbers are sorted but even numbers are
+        in their original positions.
+    """
+
+    odds = sorted([num for num in source_array if num % 2])
+    odd_iter = iter(odds)
+    return [next(odd_iter) if num % 2 else num for num in source_array]
