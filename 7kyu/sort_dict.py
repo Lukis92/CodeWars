@@ -1,5 +1,17 @@
-# https://www.codewars.com/kata/53da6a7e112bd15cbc000012/train/python
-def sort_dict(d):
-    return sorted(d.items(), key=lambda x: x[1], reverse=True)
+"""Helpers for working with dictionaries."""
 
-print(sort_dict({1:3,2:2,3:1}))#, [(1,3),(2,2),(3,1)]
+from typing import Dict, List, Tuple
+
+
+def sort_dict(d: Dict) -> List[Tuple]:
+    """Return dictionary items sorted by value in descending order.
+
+    Args:
+        d: Dictionary whose items should be sorted.
+
+    Returns:
+        A list of ``(key, value)`` tuples sorted by ``value`` from highest to
+        lowest.
+    """
+
+    return sorted(d.items(), key=lambda item: item[1], reverse=True)
